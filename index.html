@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<header class="sticky top-0 z-50 bg-slate-900 text-white">
+    <!-- <nav class="flex justify-between item-center p-4">
+        <span>Azfar</span>
+        <div class="flex gap-4">
+            <a>Home</a>
+            <a>About</a>
+            <a>Contact</a>
+        </div>
+    </nav> -->
+<nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+    <span>Logo</span>
+    <div class="hidden md:flex gap-4">
+            <a href="#Home" class="hover:text-slate-300">Home</a>
+            <a href="#About" class="hover:text-slate-300">About</a>
+            <a href="#Contect" class="hover:text-slate-300">Contact</a>
+    </div>
+    <button id="menuBtn" class="md:hidden text-white" aria-label="Buka menu" aria-expanded="false">
+        <svg Viewbox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M4 6h16M4 18h16" stroke-linecap="round"></path>
+        </svg>
+    </button>
+</nav>
+<div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-t border-slate-800 px-6 py-4 flec-col gap-4 text-slate-300">
+            <a href="#Home" class="hover:text-slate-300">Home</a>
+            <a href="#About" class="hover:text-slate-300">About</a>
+            <a href="#Contect" class="hover:text-slate-300">Contact</a>
+</div>
+</header>
+<section class="flex flex-col items-center justify-center text-center py-24 px-6">
+    <h1 class="text-4xl font-bold">
+        Perkenalan
+    </h1>
+    <p >Halo saya azfar</p>
+    <button>Mulai sekarang</button>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 p-8">
+    <div class="rounded-lg shadow-20 p-24 bg-slate-500 text-white text-center border-8">
+        Fitur 1
+    </div>
+    <div class="rounded-lg shadow bg-orange-500 p-24 text-center border-8">Fitur 2</div>    
+    <div class="rounded-lg shadow bg-orange-500 p-24 text-center border-8">Fitur 3</div>    
+    <div class="rounded-lg shadow bg-orange-500 p-24 text-center border-8">Fitur 4</div>    
+    <div class="rounded-lg shadow bg-orange-500 p-24 text-center border-8">Fitur 5</div>    
+    <div class="rounded-lg shadow bg-blue-500 p-24 text-center border-8">Fitur 6</div>    
+</section>
+<form class="flex flex-col gap-4 p-6">
+    <label for="email">Email</label>
+    <input id="email" type="email" class="border rounded p-2"></input>
+    <button type="submit" class="p-2 rounded bg-cyan-400" >Kirim</button>
+</form>
+<footer class="flex justify-between items-center p-4">
+    <p>&copy; 2026 Azfar</p>
+    <div class="flex gap-3">
+        <a href="">IG</a>
+        <a href="https://github.com/azfar-sija">Github</a>
+    </div>
+</footer>
+<script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('monileMenu');
+
+    menuBtn.addEventListener('click', ()=>{
+        const isOpen = !mobileMenu.classList.contains(hidden);
+        mobileMenu.classList.toggle('hidden', isOpen);
+        mobileMenu.classList.toggle('flex', !isOpen);
+        menuBtn.setAttribute('aria-expanded', String(!isOpen));
+        menuBtn.setAttribute('aria-label', isOpen ? 'Buka menu' : 'Tutup menu');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', ()=> {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            menuBtn.setAttribute('aria-expanded','false');
+            menuBtn.setAttribute('aria-label','Buka menu');
+        });
+    });
+</script>
+</body>
+</html>
